@@ -3,6 +3,11 @@
     height: 100px;
     
 }
+#ethereum{
+    width:100px;
+    height: 100px;
+    
+}
 .main{
     width:100%;
     max-width:1250px;
@@ -11,28 +16,48 @@
     margin-top:20px;
     display:flex;
 }
-#description{
+#descriptionB{
     position:relative;
     top:50px;
     left:-55px;
-
 }
-#start-btn{
+#descriptionE{
+    position:relative;
+    top:50px;
+    left:-55px;
+}
+#btc-btn{
+    width:200px;
+    height:50px;
+    margin-left:50px;
+    margin:20px;
+}
+#eth-btn{
     width:200px;
     height:50px;
     margin-left:20px;
     margin:20px;
 }
-#named{
+#namedB{
     margin-left: 20px;
+    margin-top:30px;
+}
+#namedE{
+margin-left: 20px;
     margin-top:30px;
 }
 #price-btc{
     margin-top:40px;
     margin-left:-10px;
     width:500px;
-    
+    margin-right:100;
 }
+#price-eth{
+    margin-top:40px;
+    margin-left:-10px;
+    width:500px;
+}
+
 .accordion-toggle {
   background: none;
   border: none;
@@ -57,11 +82,22 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
+  width:700px;
+  height:1000px;
+
 }
 
 .accordion-content.open {
   max-height: 200px; /* или auto, но с фиксированным лучше для анимации */
 }
-.accordion{
-
+.eth{
+    position: relative;
+    top:150px;
+    left:-1070px;
+    width:100%;
+    max-width:1250px;
+    margin:0 auto;
+    padding:0 20px;
+    margin-top:20px;
+    display:flex;
 }
