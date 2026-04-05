@@ -1,4 +1,28 @@
 #bitoc{
-    width:200px;
+    width:100px;
+    height: 100px;
     
+}
+.main{
+    display:flex;
+    display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 10px 10px 10px 100px;
+  max-width:50%;
+}
+
+#start-btn{
+    width:100px;
+    height:50px;
+    margin-left:20px;
+    margin:20px;
+}
+#named{
+    margin-left: 20px;
+    margin-top:30px;
+}
+#price-btc{
+    margin-top:40px;
+    margin-left:20px;
 }
