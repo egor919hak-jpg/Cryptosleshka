@@ -145,3 +145,18 @@ header button.reg:hover {
 #start-btn:hover {
   background: #c09402;
 }
+
+.price-change {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  margin-top: 4px;
+}
+
+.price-up {
+  color: #00b894;;
+}
+
+.price-down {
+  color: #d63031;
+}
