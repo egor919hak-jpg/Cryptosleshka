@@ -151,6 +151,7 @@ header button.reg:hover {
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   margin-top: 4px;
+  padding: 40px;
 }
 
 .price-up {
