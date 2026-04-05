@@ -7,19 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            Incubator
+        </div>
+        <nav class="nav">
+            <a href="#">Markets</a>
+            <a href="#">Trade</a>
+            <a href="#">Earn</a>
+            <a href="#">News</a>
+        </nav>
+        <div class="header-actions">
+            <button class="login">Login</button>
+            <button class="reg">Register</button>
+        </div>
+    </header>
     <div class="main">
-        <img src="/images/bitcoin.jpg" id="bitoc">
-        <h1 id="named">BTC</h1>
-        <p id="description">Bitcoin</p>
-        <p id="price-btc">...</p>
-        <button id="start-btn">Buy</button>
-           <div class="accordion">
-  <button class="accordion-toggle">
-    <span class="arrow">▶</span>
-  </button>
-  <div class="accordion-content">
-    <p>Bitcoin is a decentralized digital currency that can be transferred on the peer-to-peer bitcoin network. Bitcoin transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain. Bitcoin was invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.</p>
-  </div>
+        <div class="card">
+            <img src="/images/BTC.png" id="bitoc">
+            <h1 id="named">BTC</h1>
+            <p id="description">Bitcoin</p>
+            <p id="price-btc">...</p>
+            <button id="start-btn">Buy</button>
+        </div>
+        
     </div>
 </body>
 <script src="script.js"></script>
