@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto</title>
+    <title>Ринок криптовалют | Ціни на монети та ринкова капіталізация</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            Incubator
+            ✦ SPARK
         </div>
         <nav class="nav">
             <a href="#">Markets</a>
@@ -23,15 +23,60 @@
         </div>
     </header>
     <div class="main">
-        <div class="card">
-            <img src="images/BTC.png" id="bitoc" alt="BTC">
-            <h1 id="named">BTC</h1>
-            <p id="description">Bitcoin</p>
-            <p id="price-btc">...</p>
-            <p id="change-btc" class="price-change">...</p>
-            <button id="start-btn">Buy</button>
+        <div class="hero-text">
+            <h3>Largest tokens by market capitalization</h3>
+            <p>Get real-time prices, 24h changes, and key metrics for all major cryptocurrencies on Spark. Your gateway to smart crypto tracking.</p>
         </div>
-        
+        <div class="cards">
+            <div class="table-header">
+                <div class="col-icon"></div>
+                <div class="col-name">Name</div>
+                <div class="col-fullname"></div>
+                <div class="col-price">Price</div>
+                <div class="col-change">Change</div>
+                <div class="col-action"></div>
+            </div>
+            <div class="card">
+                <img src="images/BTC.png" alt="BTC">
+                <div class="coin-name">BTC</div>
+                <p class="coin-fullname">Bitcoin</p>
+                <p class="price" id="price-btc">...</p>
+                <p class="price-change" id="change-btc">...</p>
+                <button class="buy-btn" data-coin="BTC">Buy</button>
+            </div>
+            <div class="card">
+                <img src="images/ETH.png" alt="ETH">
+                <div class="coin-name">ETH</div>
+                <p class="coin-fullname">Ethereum</p>
+                <p class="price" id="price-eth">...</p>
+                <p class="price-change" id="change-eth">...</p>
+                <button class="buy-btn" data-coin="ETH">Buy</button>
+            </div>
+            <div class="card">
+                <img src="images/XRP.png" alt="XRP">
+                <div class="coin-name">XRP</div>
+                <p class="coin-fullname">Ripple</p>
+                <p class="price" id="price-xrp">...</p>
+                <p class="price-change" id="change-xrp">...</p>
+                <button class="buy-btn" data-coin="XRP">Buy</button>
+            </div>
+            <div class="card">
+                <img src="images/BNB.png" alt="BNB">
+                <div class="coin-name">BNB</div>
+                <p class="coin-fullname">BNB</p>
+                <p class="price" id="price-bnb">...</p>
+                <p class="price-change" id="change-bnb">...</p>
+                <button class="buy-btn" data-coin="BNB">Buy</button>
+            </div>
+            <div class="card">
+                <img src="images/DOGE.png" alt="DOGE">
+                <div class="coin-name">DOGE</div>
+                <p class="coin-fullname">Dogecoin</p>
+                <p class="price" id="price-dog">...</p>
+                <p class="price-change" id="change-dog">...</p>
+                <button class="buy-btn" data-coin="DOGE">Buy</button>
+            </div>
+        </div>
     </div>
 </body>
 <script src="script.js"></script>
