@@ -9,7 +9,9 @@
 body{
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  background: #181A20;
+  background: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.15), transparent),
+              radial-gradient(circle at 80% 80%, rgba(16,185,129,0.15), transparent),
+              #020617;
   color:white;
 }
 
@@ -84,9 +86,11 @@ header button.reg:hover {
 .main {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
-  background: #161a1e;
-  border-radius: 12px;
+  padding: 25px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .cards {
@@ -101,14 +105,16 @@ header button.reg:hover {
   align-items: center;
   gap: 20px;
   width: 100%;
-  padding: 16px 20px;
-  border-radius: 10px;  
+  padding: 18px 20px;
+  border-radius: 12px;  
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.25s;
+  border: 1px solid transparent;
 }
 
 .card:hover {
-  background: #1c2229;
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-2px);
 }
 
 .card img {
@@ -155,6 +161,8 @@ header button.reg:hover {
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
 .buy-btn:hover {
@@ -171,6 +179,7 @@ header button.reg:hover {
 
 .hero-text {
   padding: 0 20px;
+  margin-bottom: 10px;
 }
 
 .hero-text h3 {
@@ -193,7 +202,7 @@ header button.reg:hover {
 
 .table-header div {
   color: #697282;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
 }
 
@@ -253,118 +262,6 @@ header button.reg:hover {
 .buy-btn,
 .col-action {
   width: 100px;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
-.switch-theme {
-  margin-left: 15px;
-}
-
-.switch-theme button {
-  padding: 8px 16px;
-  border-radius: 7px;
-  background: none;
-  border: none;
-  outline: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
-  color: white;
-}
-
-.switch-theme button:hover {
-  background: rgba(255,255,255,0.2);
-  transform: scale(1.02);
-}
-
-body.light-mode {
-  background: #f5f7fb;
-  color: #1a1a2e;
-}
-
-body.light-mode header {
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-body.light-mode header nav a {
-  color: #1a1a2e;
-}
-
-body.light-mode header nav a:hover {
-  color: #f0b90b;
-}
-
-body.light-mode .main {
-  background: rgba(0,0,0,0.02);
-  border: 1px solid rgba(0,0,0,0.05);
-}
-
-body.light-mode .card:hover {
-  background: rgba(0,0,0,0.03);
-}
-
-body.light-mode .card .coin-fullname {
-  color: #6c757d;
-}
-
-body.light-mode .table-header div {
-  color: #6c757d;
-}
-
-body.light-mode .hero-text p {
-  color: #6c757d;
-}
-
-body.light-mode .switch-theme button {
-  background: #e9ecef;
-  border-color: #dee2e6;
-  color: #1a1a2e;
-}
-
-body.light-mode .switch-theme button:hover {
-  background: #dee2e6;
-}
-
-body.light-mode .price-up {
-  color: #00b894;
-}
-
-body.light-mode .price-down {
-  color: #d63031;
-}
-
-body.light-mode .buy-btn {
-  background: #f0b90b;
-  color: #1a1a2e;
-}
-
-body.light-mode .buy-btn:hover {
-  background: #d4a00a;
-}
-
-.header-actions span {
-  color: #fff;
-}
-
-body.light-mode .header-actions span {
-  color: #1a1a2e !important;
-}
-
-body.light-mode .header-actions button.login {
-  background: #e9ecef;
-  color: #1a1a2e;
-  border: 1px solid #dee2e6;
-}
-
-body.light-mode .header-actions button.login:hover {
-  background: #dee2e6;
 }
 
 @media (max-width: 768px) {
