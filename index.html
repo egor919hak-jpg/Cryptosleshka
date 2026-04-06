@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ринок криптовалют | Ціни на монети та ринкова капіталізация</title>
+    <title>Spark | Live Crypto Prices</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,16 +17,17 @@
             <a href="#">Earn</a>
             <a href="#">News</a>
         </nav>
-        <div class="header-actions">
-            <button class="login" onclick="window.location.href='auth.html'">Login</button>
-            <button class="reg" onclick="window.location.href='auth.html'">Register</button>
+        <div class="header-actions" id="header-actions">
+            <!-- JS сам вставит сюда кнопки или имя пользователя -->
         </div>
     </header>
+
     <div class="main">
         <div class="hero-text">
             <h3>Largest tokens by market capitalization</h3>
             <p>Get real-time prices, 24h changes, and key metrics for all major cryptocurrencies on Spark. Your gateway to smart crypto tracking.</p>
         </div>
+
         <div class="cards">
             <div class="table-header">
                 <div class="col-icon"></div>
@@ -36,6 +37,8 @@
                 <div class="col-change">Change</div>
                 <div class="col-action"></div>
             </div>
+
+            <!-- BTC -->
             <div class="card">
                 <img src="images/BTC.png" alt="BTC">
                 <div class="coin-name">BTC</div>
@@ -44,6 +47,8 @@
                 <p class="price-change" id="change-btc">...</p>
                 <button class="buy-btn" data-coin="BTC">Buy</button>
             </div>
+
+            <!-- ETH -->
             <div class="card">
                 <img src="images/ETH.png" alt="ETH">
                 <div class="coin-name">ETH</div>
@@ -52,6 +57,8 @@
                 <p class="price-change" id="change-eth">...</p>
                 <button class="buy-btn" data-coin="ETH">Buy</button>
             </div>
+
+            <!-- XRP -->
             <div class="card">
                 <img src="images/XRP.png" alt="XRP">
                 <div class="coin-name">XRP</div>
@@ -60,14 +67,18 @@
                 <p class="price-change" id="change-xrp">...</p>
                 <button class="buy-btn" data-coin="XRP">Buy</button>
             </div>
+
+            <!-- BNB -->
             <div class="card">
                 <img src="images/BNB.png" alt="BNB">
                 <div class="coin-name">BNB</div>
-                <p class="coin-fullname">BNB</p>
+                <p class="coin-fullname">Binance Coin</p>
                 <p class="price" id="price-bnb">...</p>
                 <p class="price-change" id="change-bnb">...</p>
                 <button class="buy-btn" data-coin="BNB">Buy</button>
             </div>
+
+            <!-- TRX -->
             <div class="card">
                 <img src="images/TRX.png" alt="TRX">
                 <div class="coin-name">TRX</div>
@@ -76,14 +87,18 @@
                 <p class="price-change" id="change-trx">...</p>
                 <button class="buy-btn" data-coin="TRX">Buy</button>
             </div>
+
+            <!-- DOGE -->
             <div class="card">
                 <img src="images/DOGE.png" alt="DOGE">
                 <div class="coin-name">DOGE</div>
                 <p class="coin-fullname">Dogecoin</p>
-                <p class="price" id="price-dog">...</p>
-                <p class="price-change" id="change-dog">...</p>
+                <p class="price" id="price-doge">...</p>
+                <p class="price-change" id="change-doge">...</p>
                 <button class="buy-btn" data-coin="DOGE">Buy</button>
             </div>
+
+            <!-- BCH -->
             <div class="card">
                 <img src="images/BCH.png" alt="BCH">
                 <div class="coin-name">BCH</div>
@@ -92,6 +107,8 @@
                 <p class="price-change" id="change-bch">...</p>
                 <button class="buy-btn" data-coin="BCH">Buy</button>
             </div>
+
+            <!-- ADA -->
             <div class="card">
                 <img src="images/ADA.png" alt="ADA">
                 <div class="coin-name">ADA</div>
@@ -100,6 +117,8 @@
                 <p class="price-change" id="change-ada">...</p>
                 <button class="buy-btn" data-coin="ADA">Buy</button>
             </div>
+
+            <!-- WBTC -->
             <div class="card">
                 <img src="images/WBTC.png" alt="WBTC">
                 <div class="coin-name">WBTC</div>
@@ -110,18 +129,17 @@
             </div>
         </div>
     </div>
-</body>
-<script src="script.js"></script>
-<script>
-        // Функция обновления шапки (показывает имя пользователя или кнопки)
+
+    <script src="script.js"></script>
+    <script>
         function updateHeaderAuth() {
             const currentUser = JSON.parse(localStorage.getItem('spark_current_user'));
             const actionsContainer = document.getElementById('header-actions');
             
             if (currentUser && currentUser.username) {
                 actionsContainer.innerHTML = `
-                    <span style="color: #f0b90b; padding: 8px 12px; font-weight: 500;">
-                        👤 ${currentUser.username}
+                    <span style="color: #fff; font-size: 14px; padding: 8px 12px; font-weight: 500;">
+                        ${currentUser.username}
                     </span>
                     <button class="login" onclick="logout()">Logout</button>
                 `;
@@ -132,15 +150,14 @@
                 `;
             }
         }
-        
-        // Функция выхода
+    
         function logout() {
             localStorage.removeItem('spark_current_user');
             updateHeaderAuth();
             alert('👋 You have been logged out');
         }
         
-        // Запускаем при загрузке страницы
         updateHeaderAuth();
     </script>
+</body>
 </html>
