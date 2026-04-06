@@ -1,0 +1,126 @@
+/* ===== Auth Page Styles ===== */
+
+.auth-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.auth-card {
+    background: #1c2229;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-form h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff, #f0b90b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.auth-form p {
+    color: #8a8a8a;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #2a2e38;
+    border: 1px solid #3a3f4a;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: white;
+    transition: all 0.2s;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: #f0b90b;
+    background: #1f2329;
+}
+
+.input-field input::placeholder {
+    color: #697282;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 14px;
+    background: #f0b90b;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+}
+
+.auth-button:hover {
+    background: #d4a00a;
+    transform: scale(1.01);
+}
+
+.switch-text {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: #8a8a8a;
+}
+
+.switch-text span {
+    color: #f0b90b;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.switch-text span:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        margin: 40px auto;
+    }
+    
+    .auth-card {
+        padding: 30px 24px;
+    }
+    
+    .auth-form h2 {
+        font-size: 24px;
+    }
+}

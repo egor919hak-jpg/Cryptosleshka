@@ -18,8 +18,8 @@
             <a href="#">News</a>
         </nav>
         <div class="header-actions">
-            <button class="login">Login</button>
-            <button class="reg">Register</button>
+            <button class="login" onclick="window.location.href='auth.html'">Login</button>
+            <button class="reg" onclick="window.location.href='auth.html'">Register</button>
         </div>
     </header>
     <div class="main">
@@ -112,4 +112,35 @@
     </div>
 </body>
 <script src="script.js"></script>
+<script>
+        // Функция обновления шапки (показывает имя пользователя или кнопки)
+        function updateHeaderAuth() {
+            const currentUser = JSON.parse(localStorage.getItem('spark_current_user'));
+            const actionsContainer = document.getElementById('header-actions');
+            
+            if (currentUser && currentUser.username) {
+                actionsContainer.innerHTML = `
+                    <span style="color: #f0b90b; padding: 8px 12px; font-weight: 500;">
+                        👤 ${currentUser.username}
+                    </span>
+                    <button class="login" onclick="logout()">Logout</button>
+                `;
+            } else {
+                actionsContainer.innerHTML = `
+                    <button class="login" onclick="window.location.href='auth.html'">Login</button>
+                    <button class="reg" onclick="window.location.href='auth.html'">Register</button>
+                `;
+            }
+        }
+        
+        // Функция выхода
+        function logout() {
+            localStorage.removeItem('spark_current_user');
+            updateHeaderAuth();
+            alert('👋 You have been logged out');
+        }
+        
+        // Запускаем при загрузке страницы
+        updateHeaderAuth();
+    </script>
 </html>

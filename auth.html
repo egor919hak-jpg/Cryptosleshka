@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark | Login & Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            ✦ SPARK
+        </div>
+        <nav class="nav">
+            <a href="index.html">Markets</a>
+            <a href="#">Trade</a>
+            <a href="#">Earn</a>
+            <a href="#">News</a>
+        </nav>
+        <div class="header-actions">
+            <button class="login" onclick="switchForm('login')">Login</button>
+            <button class="reg" onclick="switchForm('register')">Register</button>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Форма входа -->
+            <div id="login-form" class="auth-form active">
+                <h2>Welcome back</h2>
+                <p>Login to your Spark account</p>
+                
+                <div class="input-field">
+                    <input type="text" id="login-username" placeholder="Username" autocomplete="off">
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" placeholder="Password">
+                </div>
+                
+                <button class="auth-button" onclick="handleLogin()">Login</button>
+                
+                <p class="switch-text">
+                    Don't have an account? 
+                    <span onclick="switchForm('register')">Create one</span>
+                </p>
+            </div>
+
+            <!-- Форма регистрации -->
+            <div id="register-form" class="auth-form">
+                <h2>Create account</h2>
+                <p>Join Spark and start tracking crypto</p>
+                
+                <div class="input-field">
+                    <input type="text" id="reg-username" placeholder="Username" autocomplete="off">
+                </div>
+                <div class="input-field">
+                    <input type="email" id="reg-email" placeholder="Email (optional)">
+                </div>
+                <div class="input-field">
+                    <input type="password" id="reg-password" placeholder="Password">
+                </div>
+                <div class="input-field">
+                    <input type="password" id="reg-confirm" placeholder="Confirm password">
+                </div>
+                
+                <button class="auth-button" onclick="handleRegister()">Register</button>
+                
+                <p class="switch-text">
+                    Already have an account? 
+                    <span onclick="switchForm('login')">Login</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
