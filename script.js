@@ -4,7 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'eth', symbol: 'ETHUSDT', priceId: 'price-eth', changeId: 'change-eth' },
         { id: 'xrp', symbol: 'XRPUSDT', priceId: 'price-xrp', changeId: 'change-xrp' },
         { id: 'bnb', symbol: 'BNBUSDT', priceId: 'price-bnb', changeId: 'change-bnb'},
+        { id: 'trx', symbol: 'TRXUSDT', priceId: 'price-trx', changeId: 'change-trx'},
         { id: 'doge', symbol: 'DOGEUSDT', priceId: 'price-dog', changeId: 'change-dog'},
+        { id: 'bch', symbol: 'BCHUSDT', priceId: 'price-bch', changeId: 'change-bch'},
+        { id: 'ada', symbol: 'ADAUSDT', priceId: 'price-ada', changeId: 'change-ada'},
+        { id: 'wbtc', symbol: 'WBTCUSDT', priceId: 'price-wbtc', changeId: 'change-wbtc'},
     ];
 
     async function loadCoinPrice(coin) {

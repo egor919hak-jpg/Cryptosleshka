@@ -278,8 +278,10 @@ header button.reg:hover {
   }
   
   .buy-btn {
-    width: 100%;
-    margin-top: 10px;
+    width: 50%;
+    margin: 10px auto;
+    display: block;
+    max-width: 200px;
   }
 
   .cards .table-header {
