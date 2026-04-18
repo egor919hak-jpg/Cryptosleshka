@@ -88,4 +88,37 @@ document.addEventListener('DOMContentLoaded', () => {
     
     loadAllPrices();
     setInterval(loadAllPrices, 5000);
+
+    let balance = parseFloat(localStorage.getItem('balance')) || 100000;
+    let portfolio = JSON.parse(localStorage.getItem('portfolio')) || {};
+
+    document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+
+            const coin = btn.getAttribute('data-coin');
+            const symbol = coin + 'USDT';
+
+            const res =  await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`);
+            const data = await res.json();
+
+            const price = parseFloat(data.price);
+            const amount = 100;
+
+            if (balance < amount) {
+                alert("Not enough balance!");
+                return;
+            }
+
+            balance -= amount;
+            localStorage.setItem('balance', balance);
+
+            const coinsBought = amount / price;
+
+            portfolio[symbol] = (portfolio[symbol] || 0) + coinsBought;
+            localStorage.setItem("portfolio", JSON.stringify(portfolio));
+
+            alert(`Bought ${coinsBought.toFixed(6)} ${coin}`);
+        })
+    })
 });
