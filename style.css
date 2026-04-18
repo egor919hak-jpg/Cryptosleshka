@@ -92,7 +92,7 @@ header button.reg:hover {
 .cards {
   display: flex;
   flex-direction: column;
-  padding-top: 30px;;
+  padding-top: 30px;
   gap: 12px;
 }
 
@@ -365,6 +365,31 @@ body.light-mode .header-actions button.login {
 
 body.light-mode .header-actions button.login:hover {
   background: #dee2e6;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background: #161a1e;
+  padding: 20px;
+  margin: 10% auto;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+#closeModal {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 @media (max-width: 768px) {

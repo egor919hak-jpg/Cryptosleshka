@@ -11,6 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'wbtc', symbol: 'WBTCUSDT', priceId: 'price-wbtc', changeId: 'change-wbtc'},
     ];
 
+    let chart;
+
+    async function openChart(symbol) {
+        const modal = document.querySelector('#chartModal');
+        modal.style.display = 'block';
+
+        const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=1h&limit=50`);
+        const data = await res.json();
+
+        const prices = data.map(candle => parseFloat(candle[4]));
+        const labels = data.map((_, i) => i);
+
+        const ctx = document.getElementById('chartCanvas').getContext('2d');
+
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: symbol,
+                data: prices,
+                borderWidth: 2
+               }]
+            }
+        });
+    }
+
     async function loadCoinPrice(coin) {
         try {
             const resPrice = await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${coin.symbol}`);
@@ -45,6 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
             await loadCoinPrice(coin);
         }
     }
+
+    document.querySelector('#closeModal').onclick = () => {
+        document.querySelector('#chartModal').style.display = 'none';
+    }
+
+    document.querySelectorAll('.card').forEach((card, index) => {
+        card.addEventListener('click', () => {
+            const symbol = coins[index].symbol;
+            window.location.href = `chart.html?symbol=${symbol}`;
+        })
+    })
     
     loadAllPrices();
     setInterval(loadAllPrices, 5000);

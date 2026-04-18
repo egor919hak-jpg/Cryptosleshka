@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="chart.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        ✦ SPARK
+    </div>
+    <nav class="nav">
+        <a href="#">Markets</a> 
+        <a href="#">Trade</a>
+        <a href="#">Earn</a>
+        <a href="#">News</a>
+    </nav>
+</header>
+
+<h2 id="title"></h2>
+
+<div class="main">
+  <div class="chart-card">
+
+    <div class="chart-info">
+      <div>
+        <div class="price" id="price">Loading...</div>
+        <div class="change" id="change">...</div>
+      </div>
+
+      <div class="time-buttons">
+        <button class="active" data-interval="1h">1H</button>
+        <button data-interval="4h">4H</button>
+        <button data-interval="1d">1D</button>
+      </div>
+    </div>
+
+    <div id="chart"></div>
+
+  </div>
+</div>
+
+<script src="chart.js"></script>
+</body>
+</html>
