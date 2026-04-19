@@ -74,10 +74,12 @@ nav a:hover {
 .chart-card {
   width: 100%;
   max-width: 1100px;
-  background: #161a1e;
+  background: linear-gradient(145deg, #161a1e, #1c2229);
   border-radius: 16px;
   padding: 25px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.5),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
 }
 
 .chart-info {
@@ -132,6 +134,9 @@ nav a:hover {
 #chart {
   width: 100%;
   height: 500px;
+  background: #0f1115;
+  border-radius: 12px;
+  padding: 10px;
 }
 
 #title {

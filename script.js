@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const coins = [
         { id: 'btc', symbol: 'BTCUSDT', priceId: 'price-btc', changeId: 'change-btc' },
         { id: 'eth', symbol: 'ETHUSDT', priceId: 'price-eth', changeId: 'change-eth' },
         { id: 'xrp', symbol: 'XRPUSDT', priceId: 'price-xrp', changeId: 'change-xrp' },
-        { id: 'bnb', symbol: 'BNBUSDT', priceId: 'price-bnb', changeId: 'change-bnb'},
-        { id: 'trx', symbol: 'TRXUSDT', priceId: 'price-trx', changeId: 'change-trx'},
-        { id: 'doge', symbol: 'DOGEUSDT', priceId: 'price-dog', changeId: 'change-dog'},
-        { id: 'bch', symbol: 'BCHUSDT', priceId: 'price-bch', changeId: 'change-bch'},
-        { id: 'ada', symbol: 'ADAUSDT', priceId: 'price-ada', changeId: 'change-ada'},
-        { id: 'wbtc', symbol: 'WBTCUSDT', priceId: 'price-wbtc', changeId: 'change-wbtc'},
+        { id: 'bnb', symbol: 'BNBUSDT', priceId: 'price-bnb', changeId: 'change-bnb' },
+        { id: 'trx', symbol: 'TRXUSDT', priceId: 'price-trx', changeId: 'change-trx' },
+        { id: 'doge', symbol: 'DOGEUSDT', priceId: 'price-dog', changeId: 'change-dog' },
+        { id: 'bch', symbol: 'BCHUSDT', priceId: 'price-bch', changeId: 'change-bch' },
+        { id: 'ada', symbol: 'ADAUSDT', priceId: 'price-ada', changeId: 'change-ada' },
+        { id: 'wbtc', symbol: 'WBTCUSDT', priceId: 'price-wbtc', changeId: 'change-wbtc' },
     ];
 
     let chart;
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=1h&limit=50`);
         const data = await res.json();
 
-        const prices = data.map(candle => parseFloat(candle[4]));
+        const prices = data.map(c => parseFloat(c[4]));
         const labels = data.map((_, i) => i);
 
         const ctx = document.getElementById('chartCanvas').getContext('2d');
@@ -28,47 +29,46 @@ document.addEventListener('DOMContentLoaded', () => {
         if (chart) chart.destroy();
 
         chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: symbol,
-                data: prices,
-                borderWidth: 2
-               }]
+            type: 'line',
+            data: {
+                labels,
+                datasets: [{
+                    label: symbol,
+                    data: prices,
+                    borderWidth: 2
+                }]
             }
         });
     }
 
     async function loadCoinPrice(coin) {
         try {
-            const resPrice = await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${coin.symbol}`);
-            const dataPrice = await resPrice.json();
-            const price = Number(dataPrice.price).toLocaleString('en-US', {
+            const res = await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${coin.symbol}`);
+            const data = await res.json();
+
+            const price = Number(data.price).toLocaleString('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-            
+
             const priceElement = document.getElementById(coin.priceId);
             if (priceElement) priceElement.textContent = price + ' USD';
-            
-            const res24h = await fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${coin.symbol}`);
-            const data24h = await res24h.json();
-            const changePercent = Number(data24h.priceChangePercent).toFixed(2);
-            
+
+            const res24 = await fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${coin.symbol}`);
+            const data24 = await res24.json();
+
+            const change = Number(data24.priceChangePercent).toFixed(2);
+
             const changeElement = document.getElementById(coin.changeId);
             if (changeElement) {
-                changeElement.textContent = (changePercent >= 0 ? '+' : '') + changePercent + '%';
+                changeElement.textContent = (change >= 0 ? '+' : '') + change + '%';
                 changeElement.classList.remove('price-up', 'price-down');
-                changeElement.classList.add(changePercent >= 0 ? 'price-up' : 'price-down');
+                changeElement.classList.add(change >= 0 ? 'price-up' : 'price-down');
             }
-        } catch (err) {
-            console.error(`Ошибка загрузки ${coin.id}:`, err);
-            const priceElement = document.getElementById(coin.priceId);
-            if (priceElement) priceElement.textContent = 'Error';
-        }
+
+        } catch (err) {}
     }
-    
+
     async function loadAllPrices() {
         for (const coin of coins) {
             await loadCoinPrice(coin);
@@ -77,20 +77,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#closeModal').onclick = () => {
         document.querySelector('#chartModal').style.display = 'none';
-    }
+    };
 
     document.querySelectorAll('.card').forEach((card, index) => {
         card.addEventListener('click', () => {
             const symbol = coins[index].symbol;
             window.location.href = `chart.html?symbol=${symbol}`;
-        })
-    })
-    
+        });
+    });
+
     loadAllPrices();
     setInterval(loadAllPrices, 5000);
 
-    let balance = parseFloat(localStorage.getItem('balance')) || 100000;
+    let balance = parseFloat(localStorage.getItem('balance')) || 10000;
     let portfolio = JSON.parse(localStorage.getItem('portfolio')) || {};
+
+    function showNotification(text, type = "info") {
+        const toast = document.querySelector('#toast');
+
+        toast.textContent = text;
+        toast.classList.remove('success', 'error', 'info');
+        toast.classList.add(type);
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2500);
+    }
 
     document.querySelectorAll('.buy-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
@@ -99,26 +112,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const coin = btn.getAttribute('data-coin');
             const symbol = coin + 'USDT';
 
-            const res =  await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`);
+            const res = await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`);
             const data = await res.json();
 
             const price = parseFloat(data.price);
-            const amount = 100;
+            const qty = 0.01;
+            const cost = qty * price;
 
-            if (balance < amount) {
-                alert("Not enough balance!");
+            if (balance < cost) {
+                showNotification("Not enough balance!", "error");
                 return;
             }
 
-            balance -= amount;
+            balance -= cost;
             localStorage.setItem('balance', balance);
 
-            const coinsBought = amount / price;
-
-            portfolio[symbol] = (portfolio[symbol] || 0) + coinsBought;
+            portfolio[symbol] = (portfolio[symbol] || 0) + qty;
             localStorage.setItem("portfolio", JSON.stringify(portfolio));
 
-            alert(`Bought ${coinsBought.toFixed(6)} ${coin}`);
-        })
-    })
+            showNotification(`Bought ${qty} ${coin}`, "success");
+        });
+    });
+
 });

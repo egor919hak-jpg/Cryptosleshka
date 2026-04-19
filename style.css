@@ -401,6 +401,55 @@ body.light-mode .header-actions button.login:hover {
   font-size: 20px;
 }
 
+#toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  min-width: 180px;
+  max-width: 260px;
+
+  padding: 12px 16px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #fff;
+
+  background: rgba(20, 24, 30, 0.9);
+  backdrop-filter: blur(30px);
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+  opacity: 0;
+  transform: translateY(15px);
+
+  transition: 0.25s ease;
+
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#toast.success {
+  border-left: 4px solid #00b894;
+}
+
+#toast.error {
+  border-left: 4px solid #d63031;
+}
+
+#toast.info {
+  border-left: 4px solid #3498db;
+}
+
 @media (max-width: 768px) {
   header {
     padding: 15px 20px;
