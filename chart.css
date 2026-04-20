@@ -134,7 +134,7 @@ nav a:hover {
 #chart {
   width: 100%;
   height: 500px;
-  background: #0f1115;
+  background: linear-gradient(145deg, #161a1e, #1c2229);
   border-radius: 12px;
   padding: 10px;
 }
