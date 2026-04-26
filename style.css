@@ -450,6 +450,50 @@ body.light-mode .header-actions button.login:hover {
   border-left: 4px solid #3498db;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 50px;
+  border-top: 1px #2e333e solid;
+  margin: 10px;
+}
+
+footer div h3 {
+  padding-bottom: 8px;
+  font-size: 16px;
+}
+
+footer div a {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  font-size: 14px;
+  color: #e2e2e2;
+  transition: 0.3s;
+}
+
+footer div a:hover {
+  color: #f0b90b;
+}
+
+body.light-mode footer {
+  background: #ffffff;
+  border-top: 1px solid #e9ecef;
+}
+
+body.light-mode footer div h3 {
+  color: #1a1a2e;
+}
+
+body.light-mode footer div a {
+  color: #6c757d;
+}
+
+body.light-mode footer div a:hover {
+  color: #f0b90b;
+}
+
 @media (max-width: 768px) {
   header {
     padding: 15px 20px;
@@ -481,5 +525,16 @@ body.light-mode .header-actions button.login:hover {
 
   .cards .table-header {
     display: none;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  footer div a:hover {
+    transform: none;
   }
 }

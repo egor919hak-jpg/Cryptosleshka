@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'bch', symbol: 'BCHUSDT', priceId: 'price-bch', changeId: 'change-bch' },
         { id: 'ada', symbol: 'ADAUSDT', priceId: 'price-ada', changeId: 'change-ada' },
         { id: 'wbtc', symbol: 'WBTCUSDT', priceId: 'price-wbtc', changeId: 'change-wbtc' },
+        { id: 'xlm', symbol: 'XLMUSDT', priceId: 'price-xlm', changeId: 'change-xlm' },
+        { id: 'link', symbol: 'LINKUSDT', priceId: 'price-link', changeId: 'change-link' },
+        { id: 'zec', symbol: 'ZECUSDT', priceId: 'price-zec', changeId: 'change-zec' },
     ];
 
     let chart;
